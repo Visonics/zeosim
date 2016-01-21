@@ -1,0 +1,96 @@
+/*
+    body {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        margin-left: 1px;
+        margin-top: 5px;
+        margin-right: 5px;
+    }
+
+    a:link {
+        color: #0033FF;
+        text-decoration: none
+    }
+
+    a:visited {
+        color: #0033FF;
+        text-decoration: none
+    }
+
+    a:active {
+        color: #0033FF;
+        text-decoration: none
+    }
+
+    a:hover {
+        color: black;
+        text-decoration: underline
+    }
+
+
+	h3 { color: red}
+	p {color: blue}
+
+	table {
+		border-collapse: collapse;
+	}	
+	table, th, td {
+		border: 1px solid red;
+		padding: 2px;
+	}	
+*/
+
+	.header {
+        position: relative;
+        background-color: #D2E9FF;
+        border: 2px solid #5280FF;
+        text-align: center;
+        vertical-align: middle;
+    }
+	
+    .title {
+            color: Red;
+            font-size: 52px;
+            font-family: 'Oswald', Arial;
+            text-shadow: 4px 4px 4px #aaa;
+    }
+
+	.appletdiv {
+            float:left;
+            padding: 5px;
+			margin: 5px;
+			height: 600px;
+            overflow: visible;
+			border:1px solid #D2E9FF;
+        }
+
+	.reportdiv {
+			border:1px solid #D2E9FF;
+			float:right;
+            padding: 5px;
+			margin: 5px;
+			color: #D2E9FF;
+            overflow: auto
+      }
+	  
+	#parent_div_1 {
+		max-width: 48%;
+		height: 600px;
+		min-width: 45%;
+		margin-right:10px;
+		padding: 5px;
+		float:left;
+		overflow: auto
+	}
+	
+	.child_div_1{
+		float:left;
+		margin-right:5px;
+	}		
+
+	#tableBox {
+            padding: 4px;
+			margin: 2px;
+			color: blue;
+    }	
+		
