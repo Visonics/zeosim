@@ -61,6 +61,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 
 Sample was Copyright 1998-2015 by Northwoods Software Corporation.
 */
+//
 ?>
 
 <!DOCTYPE html>
@@ -90,143 +91,156 @@ Sample was Copyright 1998-2015 by Northwoods Software Corporation.
 </head>
 
 <body>
-<body>
 <div class="header" id="heads">
-        <div class="title">JS-Mesoporous Zeolites Simulation</div>
-        <div>Copyright (c) 2016 and beyond, Farrukh Shahzad, PhD and Sohel Shaikh, PhD
+    <div class="btn btn-primary btn-xs title">Mesoporous Zeolites Simulation</div>
+    <br>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <div class="btn btn-primary btn-xs subtitle">Copyright (c) 2016 and beyond, Farrukh Shahzad, PhD and Sohel Shaikh,
+        PhD
+    </div>
+    <span>
+    <input  class="btn btn-primary btn-xs right_button" type="button" id="logout" value="Logout" onclick="logout('zeo.php');"/>
+    </span>
+    <!--
+    <a href="javascript:Jmol.loadFile(jmolApplet0,'data/1505106.cif','load &quot;&quot; {1 1 1}')">MFI</a>&nbsp;&nbsp;
+    <a href="javascript:Jmol.loadFile(jmolApplet0,'data/4115456.cif','load &quot;&quot; {1.5 1.5 1.5}')">MIF2</a>&nbsp;&nbsp;
+    <a href="javascript:Jmol.loadFile(jmolApplet0,'data/CSV.cif','load &quot;&quot; {1 1 1}')">CSV</a> &nbsp;&nbsp;
+    <a href="javascript:Jmol.loadFile(jmolApplet0,'data/MEL.cif','load &quot;&quot; {1 1 1}')">MEL</a>
+    -->
+    <form action="" method="post" class="navbar-form">
+        <label>
+            <span>Framework:</span>
+        <span><select style="width: 70px;" class="btn btn-primary btn-xs" id="fw" onchange="ChangeFW();">
+            <option value="ACO.cif">ACO</option>
+            <option value="AFR.cif">AFR</option>
+            <option value="AST.cif">AST</option>
+            <option value="ASV.cif">ASV</option>
+            <option value="BEA.cif">BEA</option>
+            <option value="CHA.cif">CHA</option>
+            <option value="CSV.cif">CSV</option>
+            <option value="CZP.cif">CZP</option>
 
-        </div>
-		<!--
-		<a href="javascript:Jmol.loadFile(jmolApplet0,'data/1505106.cif','load &quot;&quot; {1 1 1}')">MFI</a>&nbsp;&nbsp;
-		<a href="javascript:Jmol.loadFile(jmolApplet0,'data/4115456.cif','load &quot;&quot; {1.5 1.5 1.5}')">MIF2</a>&nbsp;&nbsp;
-		<a href="javascript:Jmol.loadFile(jmolApplet0,'data/CSV.cif','load &quot;&quot; {1 1 1}')">CSV</a> &nbsp;&nbsp;
-		<a href="javascript:Jmol.loadFile(jmolApplet0,'data/MEL.cif','load &quot;&quot; {1 1 1}')">MEL</a>
-		-->
-		<form action="" method="post" class="navbar-form navbar-righ">
-		<label>
-		<span>Framework:</span>
-        <span><select style="width: 70px;" class="btn btn-primary btn-xs"  id="fw" onchange="ChangeFW();">
-				<option value="ACO.cif">ACO</option>
-				<option value="AFR.cif">AFR</option>
-				<option value="AST.cif">AST</option>
-				<option value="ASV.cif">ASV</option>
-				<option value="BEA.cif">BEA</option>
-                <option value="CHA.cif">CHA</option>
-				<option value="CSV.cif">CSV</option>
-				<option value="CZP.cif">CZP</option>
+            <option value="FAU.cif">FAU</option>
+            <option value="FER.cif">FER</option>
+            <option value="AST.cif">AST</option>
+            <option value="IFR.cif">IFR</option>
+            <option value="LTA.cif">LTA</option>
+            <option value="MEL.cif">MEL</option>
+            <option value="MFI.cif" selected>MFI</option>
+            <option value="MOR.cif">MOR</option>
+            <option value="MOZ.cif">MOZ</option>
+            <option value="MTW.cif">MTW</option>
+            <option value="OFF.cif">OFF</option>
+            <option value="PSI.cif">PSI</option>
 
-				<option value="FAU.cif">FAU</option>
-				<option value="FER.cif">FER</option>
-				<option value="AST.cif">AST</option>
-				<option value="IFR.cif">IFR</option>
-				<option value="LTA.cif">LTA</option>
-				<option value="MEL.cif">MEL</option>
-                <option value="MFI.cif" selected >MFI</option>
-				<option value="MOR.cif">MOR</option>
-				<option value="MOZ.cif">MOZ</option>
-				<option value="MTW.cif">MTW</option>
-				<option value="OFF.cif">OFF</option>
-				<option value="PSI.cif">PSI</option>
+            <option value="STF.cif">STF</option>
+            <option value="TON.cif">TON</option>
+            <option value="UOZ.cif">UOZ</option>
+            <option value="UTL.cif">UTL</option>
 
-				<option value="STF.cif">STF</option>
-				<option value="TON.cif">TON</option>
-				<option value="UOZ.cif">UOZ</option>
-				<option value="UTL.cif">UTL</option>
-
-            </select>
+        </select>
 		</span>
-		</label>
-		<label><span><input type="button" id="btnSave" class="btn btn-primary btn-xs" value="Load" onclick="LoadFW('');"/></span></label>
-		<label>
+        </label>
+
+        &nbsp;&nbsp;&nbsp;
+        <label>
 		<span>
 		Symmetry:</span>
-		<span><select style="width: 90px;" class="btn btn-primary btn-xs"  id="sym" onchange="ChangeSym();">
-				<option value="{1 1 1}">{1 1 1}</option>
-                <option value="{2 2 1}" selected>{2 2 2}</option>
-                <option value="{3 3 1}">{3 3 1}</option>
-                <option value="{3 3 3}">{3 3 3}</option>
-				<option value="{5 5 5}">{5 5 1}</option>
-				<option value="{5 5 5}">{5 5 5}</option>
-				<option value="{5 5 5}">{10 10 1}</option>
-				<option value="{10 10 5}">{10 10 5}</option>
-            </select>
+		<span><select style="width: 90px;" class="btn btn-primary btn-xs" id="sym" onchange="ChangeSym();">
+            <option value="{1 1 1}">{1 1 1}</option>
+            <option value="{2 2 1}" selected>{2 2 2}</option>
+            <option value="{3 3 1}">{3 3 1}</option>
+            <option value="{3 3 3}">{3 3 3}</option>
+            <option value="{5 5 5}">{5 5 1}</option>
+            <option value="{5 5 5}">{5 5 5}</option>
+            <option value="{5 5 5}">{10 10 1}</option>
+            <option value="{10 10 5}">{10 10 5}</option>
+        </select>
 		</span>
-		</label>
-		<label>
-		<span>
+        </label>
+        <label>
+		<span>&nbsp;&nbsp;&nbsp;
 		View:</span>
         <span> <select id="view" class="btn btn-primary btn-xs" onchange="control();">
-				<option value="best" selected>Best</option>
-				<option value="top">Top</option>
-                <option value="right">Right</option>
-                <option value="front">Front</option>
-                <option value="back">Back</option>
-				<option value="left">Left</option>
-				<option value="bottom">Bottom</option>
-				<option value="Show All">Show All</option>
-            </select>
+            <option value="best" selected>Best</option>
+            <option value="top">Top</option>
+            <option value="right">Right</option>
+            <option value="front">Front</option>
+            <option value="back">Back</option>
+            <option value="left">Left</option>
+            <option value="bottom">Bottom</option>
+            <option value="Show All">Show All</option>
+        </select>
 		</span>
-		</label>
-		<label><span>
+        </label>
+        <label><span>&nbsp;&nbsp;&nbsp;
 		Spin:&nbsp;&nbsp;<input type="checkbox" id="spin" onclick="control();"/>&nbsp;&nbsp;&nbsp;
 		</span></label>
-		<label><span>
+        <label><span>
 		Label:&nbsp;&nbsp;<input type="checkbox" id="label" onclick="control();"/>&nbsp;&nbsp;&nbsp;
 		</span></label>
-		<label><span>
-		Edit:&nbsp;&nbsp;<input type="checkbox" id="edit"  onclick="control();"/>&nbsp;&nbsp;&nbsp;
+        <label><span>
+		Edit:&nbsp;&nbsp;<input type="checkbox" id="edit" onclick="control();"/>&nbsp;&nbsp;&nbsp;
 		</span></label>
-		<label><span>
+        <label><span>
 		Antialias:&nbsp;&nbsp;<input type="checkbox" id="antialias" onclick="control();"/>&nbsp;&nbsp;&nbsp;
 		</span></label>
-		<label><span>
-		Dark:&nbsp;&nbsp;<input type="checkbox" id="background"	onclick="control();"/>
+        <label><span>
+		Dark:&nbsp;&nbsp;<input type="checkbox" id="background" onclick="control();"/>
 		</span></label>
-		<label><span>
+        <label><span>&nbsp;&nbsp;&nbsp;
 		<input type="button" id="btnSave4" class="btn btn-primary btn-xs" value="Save" onclick="save();"/>
-		</span><span>
-		<input type="button" id="btnSave6" class="btn btn-primary btn-xs" value="JSON" onclick="saveJSON();" />
+		</span></label><label><span>&nbsp;&nbsp;&nbsp;
+		<input type="button" id="btnSave6" class="btn btn-primary btn-xs" value="JSON" onclick="saveJSON();"/>
 		</span></label>
-		<br>
-		<!--<input type="button" id="btnSave" value="Draw" onclick="Jmol.script(jmolApplet0,'draw c1 circle {10 10 10} {15 15 15} diameter 100');"/>-->
+        &nbsp;&nbsp;&nbsp;
+        <label><span><input type="button" id="btnSave" class="btn btn-primary btn-xs" value="Load"
+                            onclick="LoadFW('');"/>
+		</span></label>
+        <br>
+        <!--<input type="button" id="btnSave" value="Draw" onclick="Jmol.script(jmolApplet0,'draw c1 circle {10 10 10} {15 15 15} diameter 100');"/>-->
+        <label><span>
 		Anim GIF: <input type="checkbox" id="save_gif"/>
-		<label><span>
-		Diameter (&Aring;):</span><span><input style="width: 40px;" class="btn btn-primary btn-xs" type="number" id="radius" value="5" min="1" max="50" maxlength="5" />
 		</span></label>
-		<label><span>
-		Random:</span><span><input style="width: 40px;" type="number" class="btn btn-primary btn-xs" id="rand" value="0" min="0" max="5" maxlength="5" />
+        <label><span>&nbsp;&nbsp;&nbsp;
+		Diameter (&Aring;):&nbsp;</span><span><input style="width: 40px;" class="btn btn-primary btn-xs" type="number"
+                                                     id="radius" value="5" min="1" max="50" maxlength="5"/>
 		</span></label>
-		<label><span>
+        <label><span>&nbsp;&nbsp;&nbsp;
+		Random:&nbsp;</span><span><input style="width: 40px;" type="number" class="btn btn-primary btn-xs" id="rand"
+                                         value="0" min="0" max="5" maxlength="5"/>
+		</span></label>
+        <label><span>&nbsp;&nbsp;&nbsp;
 		Axis:</span><span>
-            <select  style="width: 80px;" class="btn btn-primary btn-xs" id="axis">
-				<option value="x" selected>X (Right)</option>
-				<option value="y">Y (Top)</option>
-				<option value="z">Z (front)</option>
+            <select style="width: 85px;" class="btn btn-primary btn-xs" id="axis">
+                <option value="x" selected>X (Right)</option>
+                <option value="y">Y (Top)</option>
+                <option value="z">Z (front)</option>
             </select>
 		</span></label>
-		<label><span>
+        <label><span>&nbsp;&nbsp;&nbsp;
 		Shape:</span><span>
-            <select  style="width: 80px;" class="btn btn-primary btn-xs" id="shape">
-				<option value="cyliner" selected>Cylinder</option>
-				<option value="sphere">Sphere</option>
-				<option value="sphere2">Sphere x 2</option>
+            <select style="width: 90px;" class="btn btn-primary btn-xs" id="shape">
+                <option value="cyliner" selected>Cylinder</option>
+                <option value="sphere">Sphere</option>
+                <option value="sphere2">Sphere x 2</option>
                 <option value="worm">Worm</option>
             </select>
 		</span></label>
-		<label><span>
+        <label><span>&nbsp;&nbsp;&nbsp;
 		Pattern:</span><span>
-            <select style="width: 100px;" class="btn btn-primary btn-xs" id="pattern">
-				<option value="pick" selected>Pick</option>
-				<option value="across_3" >Across (3)</option>
-				<option value="across_5" >Across (5)</option>
-				<option value="grid_3" >Grid (3 x 3)</option>
-				<option value="grid_5" >Grid (5 x 5)</option>
-				<option value="random_5">Random (5)</option>
+            <select style="width: 110px;" class="btn btn-primary btn-xs" id="pattern">
+                <option value="pick" selected>Pick</option>
+                <option value="across_3">Across (3)</option>
+                <option value="across_5">Across (5)</option>
+                <option value="grid_3">Grid (3 x 3)</option>
+                <option value="grid_5">Grid (5 x 5)</option>
+                <option value="random_5">Random (5)</option>
                 <option value="random_10">Random (10)</option>
-				<option value="sample">Sample</option>
+                <option value="sample">Sample</option>
             </select>
 		</span></label>
-		<label><span>
+        <label><span>&nbsp;&nbsp;&nbsp;
 		Color:
             <select style="width: 90px;" class="btn btn-primary btn-xs" id="coloring">
                 <option value=-1>Auto</option>
@@ -245,27 +259,26 @@ Sample was Copyright 1998-2015 by Northwoods Software Corporation.
 			insetColor:'#666 #FFF #FFF #666',
 			backgroundColor:'#CCC'}" onclick="document.getElementById('coloring').value=-2;">
 		</span></label>
-		<label><span>
+        <label><span>&nbsp;&nbsp;&nbsp;
 		<input type="button" class="btn btn-primary btn-xs" id="btnSave3" value="Run!" onclick="run_mesopore();"/>
 		</span></label>
-		<label><span>
+        <label><span>
 		<input type="submit" class="btn btn-primary btn-xs" id="btnSave2" value="Reset" onclick="ChangeFW();"/>
 		</span></label>
-		<label><span>
-		<a id="savesim" href="#"><button type="button" class="btn btn-primary btn-xs">Save Simulation</button></a>
+        <label><span>
+		<a id="savesim" href="#">
+            <button type="button" class="btn btn-primary btn-xs">Save Simulation</button>
+        </a>
 		</span></label>
-		</form>
+    </form>
 </div>
 
 <div class="container" id='parent_div_1'>
-<div id ='appdiv'></div>
+    <div id='appdiv'></div>
 </div>
 <div class="parent_div_1">
-<div id ='reportdiv'></div>
+    <div id='reportdiv'></div>
 </div>
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="resources/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 </html>

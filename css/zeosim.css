@@ -46,15 +46,26 @@
         border: 2px solid #5280FF;
         text-align: center;
         vertical-align: middle;
+		cursor: default;
     }
 	
     .title {
-            color: Red;
-            font-size: 52px;
+            color: White;
+            font-size: 44px;
             font-family: 'Oswald', Arial;
             text-shadow: 4px 4px 4px #aaa;
+			cursor: default;
     }
 
+	.subtitle {
+            color: White;
+			cursor: default;
+    }
+
+	.right_button {
+		float: right;
+		margin: 10px
+    }
 	.appletdiv {
             float:left;
             padding: 5px;
