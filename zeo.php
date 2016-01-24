@@ -91,16 +91,21 @@ Sample was Copyright 1998-2015 by Northwoods Software Corporation.
 </head>
 
 <body>
+
+<body style="width: 100%; height: 100px">
 <div class="header" id="heads">
     <div class="btn btn-primary btn-xs title">Mesoporous Zeolites Simulation</div>
     <br>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+	<span><input class="btn btn-primary btn-xs left_button" type="button" id="browser" value="Browser" onclick="changeApp(false);" />   </span>
+
     <div class="btn btn-primary btn-xs subtitle">Copyright (c) 2016 and beyond, Farrukh Shahzad, PhD and Sohel Shaikh,
-        PhD
+        PhD&nbsp;&nbsp;&nbsp;
     </div>
+
     <span>
     <input  class="btn btn-primary btn-xs right_button" type="button" id="logout" value="Logout" onclick="logout('zeo.php');"/>
-    </span>
+
     <!--
     <a href="javascript:Jmol.loadFile(jmolApplet0,'data/1505106.cif','load &quot;&quot; {1 1 1}')">MFI</a>&nbsp;&nbsp;
     <a href="javascript:Jmol.loadFile(jmolApplet0,'data/4115456.cif','load &quot;&quot; {1.5 1.5 1.5}')">MIF2</a>&nbsp;&nbsp;
@@ -119,6 +124,7 @@ Sample was Copyright 1998-2015 by Northwoods Software Corporation.
             <option value="CHA.cif">CHA</option>
             <option value="CSV.cif">CSV</option>
             <option value="CZP.cif">CZP</option>
+            <option value="EWT.cif">EWT</option>
 
             <option value="FAU.cif">FAU</option>
             <option value="FER.cif">FER</option>
@@ -148,12 +154,12 @@ Sample was Copyright 1998-2015 by Northwoods Software Corporation.
 		Symmetry:</span>
 		<span><select style="width: 90px;" class="btn btn-primary btn-xs" id="sym" onchange="ChangeSym();">
             <option value="{1 1 1}">{1 1 1}</option>
-            <option value="{2 2 1}" selected>{2 2 2}</option>
+            <option value="{2 2 2}" selected>{2 2 2}</option>
             <option value="{3 3 1}">{3 3 1}</option>
             <option value="{3 3 3}">{3 3 3}</option>
-            <option value="{5 5 5}">{5 5 1}</option>
+            <option value="{5 5 1}">{5 5 1}</option>
             <option value="{5 5 5}">{5 5 5}</option>
-            <option value="{5 5 5}">{10 10 1}</option>
+            <option value="{10 10 1}">{10 10 1}</option>
             <option value="{10 10 5}">{10 10 5}</option>
         </select>
 		</span>
@@ -208,7 +214,7 @@ Sample was Copyright 1998-2015 by Northwoods Software Corporation.
 		</span></label>
         <label><span>&nbsp;&nbsp;&nbsp;
 		Random:&nbsp;</span><span><input style="width: 40px;" type="number" class="btn btn-primary btn-xs" id="rand"
-                                         value="0" min="0" max="5" maxlength="5"/>
+                                        pattern="\d*" value="0" min="0" max="5" maxlength="5"/>
 		</span></label>
         <label><span>&nbsp;&nbsp;&nbsp;
 		Axis:</span><span>
@@ -231,8 +237,8 @@ Sample was Copyright 1998-2015 by Northwoods Software Corporation.
 		Pattern:</span><span>
             <select style="width: 110px;" class="btn btn-primary btn-xs" id="pattern">
                 <option value="pick" selected>Pick</option>
-                <option value="across_3">Across (3)</option>
-                <option value="across_5">Across (5)</option>
+                <option value="grid_2">Cross (5)</option>
+                <option value="grid_4">Cross (11)</option>
                 <option value="grid_3">Grid (3 x 3)</option>
                 <option value="grid_5">Grid (5 x 5)</option>
                 <option value="random_5">Random (5)</option>
@@ -254,16 +260,25 @@ Sample was Copyright 1998-2015 by Northwoods Software Corporation.
                 <option value=6>White</option>
                 <option value=7>LightSalmon</option>
             </select>
-		<input style="width: 60px;" value="ffcc00" id="colorPick" class="jscolor {position:'right',
+		<input style="width: 60px;" value="ffcc00" id="colorPick" class="btn btn-primary btn-xs jscolor {position:'right',
 			borderColor:'#FFF #666 #666 #FFF',
 			insetColor:'#666 #FFF #FFF #666',
 			backgroundColor:'#CCC'}" onclick="document.getElementById('coloring').value=-2;">
+
+		&nbsp;
+		<select style="width: 60px;" class="btn btn-primary btn-xs" id="opaque">
+                <option value=0>0</option>
+                <option value=25>25%</option>
+                <option value=50 selected>50%</option>
+                <option value=75>75%</option>
+                <option value=87.5>100%</option>
+            </select>
 		</span></label>
         <label><span>&nbsp;&nbsp;&nbsp;
 		<input type="button" class="btn btn-primary btn-xs" id="btnSave3" value="Run!" onclick="run_mesopore();"/>
 		</span></label>
         <label><span>
-		<input type="submit" class="btn btn-primary btn-xs" id="btnSave2" value="Reset" onclick="ChangeFW();"/>
+		<input type="button" class="btn btn-primary btn-xs" id="btnSave2" value="Reset" onclick="ChangeSym();"/>
 		</span></label>
         <label><span>
 		<a id="savesim" href="#">
@@ -273,11 +288,11 @@ Sample was Copyright 1998-2015 by Northwoods Software Corporation.
     </form>
 </div>
 
-<div class="container" id='parent_div_1'>
-    <div id='appdiv'></div>
+<div class="container" id='parent_div_1' style="width: 52%;height: 600px">
+    <div id='appdiv' style="width: 100%;height: 590px"></div>
 </div>
 <div class="parent_div_1">
-    <div id='reportdiv'></div>
+    <div id='reportdiv' style="margin-right:15px; height: 590px; overflow: auto"></div>
 </div>
 
 </body>
