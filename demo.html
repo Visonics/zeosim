@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Zeolite Simulation Demo</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <link href="css/zeosim.css" rel="stylesheet" type="text/css"/>
+<style>
+
+body {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+</style>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]>
+    <script src="resources/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="resources/ie-emulation-modes-warning.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="resources/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script src="resources/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container theme-showcase" role="main">
+    <!-- Carousel
+    ================================================== -->
+
+        <h1 class="alert alert-danger title">Zeolite Mesoporosity Simulation</h1>
+
+        <div id="carousel-example-generic" class="carousel slide picture" data-ride="carousel" data-interval="10000">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="6"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div align='center' class="item active">
+            <img class="pciture" align="middle" src="media/app-java-list.png" height="800" alt="First slide">
+            <div class="carousel-caption">
+            <h2 style="font-size: x-large; margin: 2px; background: rgba(200, 54, 54, 0.5);">
+                The App supports Java as well as HTML5 on PCs and Mobile devices. There are many options for viewing, simulation and reporting. The App shows detailed list of all mesopores created.</h2>
+           </div>
+        </div>
+        <div align='center' class="item">
+            <img class="picture" align="middle"  src="media/iphone6s_mesopores_z.png" alt="iphone">
+            <div class="carousel-caption" >
+            <h2 style="font-size: x-large;margin: 2px; background: rgba(200, 54, 54, 0.7);">A screen shot from iPhone 6S. This App allows chemist to imagine and simulate mesoporosity in zeolite frameworks
+                before actual experimentation which can result in new products and even new zeolite structures.</h2>
+          </div>
+        </div>
+
+        <div align='center' class="item">
+            <img align='center' class="picture" src="media/LTA_front.png" height="500" width="700" alt="Front of LTA framework">
+            <div class="carousel-caption">
+            <p style="font-size: x-large;margin: 2px; background: rgba(200, 54, 54, 0.5);">Front face of LTA framework {3 3 1}<br>after simulation showing mesopore's diameters
+                <br>Click <a href="media/LTA_front.pdf" target="_blank">here</a> to download pdf.</p>
+            </div>
+          </div>
+
+          <div align='center'class="item">
+            <img class="picture" height="500" width="700" src="media/LTA_right.png" alt="Third slide">
+            <div class="carousel-caption">
+            <h2 style="font-size: x-large;margin: 2px; background: rgba(200, 54, 54, 0.5);">Right face of LTA framework showing mesoporus cylinders and spheres
+                <p>Click <a href="media/LTA_right.pdf" target="_blank">here</a> to download pdf.</p></h2>
+                </div>
+          </div>
+
+          <div align='center' class="item">
+            <img class="pciture" align="middle" height="500" width="700" src="media/across_5-z-TON.gif" alt="First slide">
+            <div class="carousel-caption">
+            <h2  style="font-size: x-large;margin: 2px; background: rgba(200, 54, 54, 0.5);">Animated GIF showing the simulation process<br>(TON, z-axis)</h2>
+          </div>
+        </div>
+
+          <div align='center' class="item">
+            <img class="pciture" align="middle" height="500" width="700" src="media/faces-AST.gif" alt="First slide">
+            <div class="carousel-caption">
+            <h2  style="font-size: x-large;margin: 2px; background: rgba(200, 54, 54, 0.5);">Animated GIF showing all faces after simulation<br>(AST)</h2>
+          </div>
+        </div>
+
+          <div align='center' class="item">
+            <img class="picture" height="500" width="700" align="middle" src="media/MFI_back.png" alt="First slide">
+            <div class="carousel-caption">
+            <h2 style="font-size: x-large;margin: 2px; background: rgba(200, 54, 54, 0.5);">Showing simulated cylindrical pores</h2>
+          </div>
+        </div>
+
+
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div><!-- /.carousel -->
+   </div>
+      <footer class="footer">
+        <p>&copy; 2016 and beyond, Farrukh Shahzad, PhD and Sohel Shaikh, PhD</p>
+      </footer>
+     <h2>References:</h2>
+<p class="notranslate"><em>JSmol: An open-source HTML5 viewer for chemical structures in 3D</em>. http://wiki.jmol.org/index.php/JSmol </p>
+
+<p class="notranslate">
+ Li, K., Valla, J. and Garcia-Martinez, J. (2014), <i>Realizing the Commercial Potential of Hierarchical Zeolites:
+    New Opportunities in Catalytic Cracking.</i> ChemCatChem, 6: 46–66. doi:10.1002/cctc.201300345
+</p>
+<p class="notranslate">
+    Moliner, M., Martínez, C. and Corma , A. (2015),<i>Multipore Zeolites: Synthesis and Catalytic Applications.</i>
+    Angew. Chem. Int. Ed., 54: 3560–3579. doi:10.1002/anie.201406344
+</p>
+
+<p class="notranslate">Baerlocher, C. and McCusker, L. Database of Zeolite Structures. <a href="http://www.iza-structure.org/databases/" target="_blank">
+    http://www.iza-structure.org/databases/</a>, 2016. Accessed on Jan 20, 2016.
+          <a href="http://izasc.ethz.ch/fmi/xsl/IZA-SC/ftc_fw.xsl?-db=Atlas_main&-lay=fw&-max=25&STC=MFI&-find" target="_blank">Framework Type
+              <span class="notranslate">MFI</span></a> (Material: <span class="notranslate">ZSM-5</span>)
+</p>
+
+<p class="notranslate">First, E. L., Gounaris, C. E., Wei, J., and Floudas, C. A. <a href="http://dx.doi.org/10.1039/c1cp21731c" target="_blank">
+    Computational characterization of zeolite porous networks: an automated approach</a>. <em>Physical Chemistry Chemical Physics</em>,
+    13(38):17339&#8211;17358, 2011.</p>
+
+
+<p class="notranslate">
+Shane P. Tully, Thomas M. Stitt, Robert D. Caldwell, Brian J. Hardock, Robert M. Hanson, and Przemyslaw Maslak:
+    <i>Interactive web-based pointillist visualization of hydrogenic orbitals using Jmol</i>.
+    <b>Journal of Chemical Education</b> 90, 129-131 (2013). doi:10.1021/ed300393s
+</p>
+<p>More simulation GIFs:  <a href="media/grid_5-z-MEL.gif" target="_blank">Random Grid 5 x 5 z-axis MEL Framework</a>
+    and <a href="media/grid_3-x-MEL.gif" target="_blank">Grid 3 x 3 x-axis MEL Framework</a>
+</p>
+</div>
+
+</body>
+</html>
